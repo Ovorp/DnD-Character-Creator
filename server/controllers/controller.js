@@ -14,9 +14,25 @@ function getCharSheetsById(req, res) {
     : res.status(200).json(data);
 }
 
-// get controllers for items
+// get controllers for items, to get a item by querey please use name= or cost=
 
 function getItemList(req, res) {
+  const { name, mincost, maxcost } = req.query;
+
+  if (name) {
+    const itemListByName = shopItems.filter((val) =>
+      val.name.toLowerCase().includes(name.toLowerCase())
+    );
+    return res.status(200).json(itemListByName);
+  }
+  if (mincost) {
+    const itemListByMinCost = shopItems.filter((val) => val.cost >= +mincost);
+    return res.status(200).json(itemListByMinCost);
+  }
+  if (maxcost) {
+    const itemListByMaxCost = shopItems.filter((val) => val.cost <= +maxcost);
+    return res.status(200).json(itemListByMaxCost);
+  }
   res.status(200).json(shopItems);
 }
 
