@@ -10,7 +10,7 @@ const charSheets = [
     wis: 13,
     cha: 9,
     inventory: [],
-    bio: {},
+    bio: '',
     avatar:
       'https://db4sgowjqfwig.cloudfront.net/campaigns/178338/assets/813777/Tortle.png?1514853655',
     gold: 642,
@@ -26,7 +26,7 @@ const charSheets = [
     wis: 14,
     cha: 10,
     inventory: [],
-    bio: {},
+    bio: '',
     avatar: 'https://pbs.twimg.com/media/DkVH93jW0AAzXwP.png',
     gold: 451,
   },
@@ -41,7 +41,7 @@ const charSheets = [
     wis: 10,
     cha: 18,
     inventory: [],
-    bio: {},
+    bio: '',
     avatar:
       'https://static.wikia.nocookie.net/forgottenrealms/images/a/ab/Farideh.jpg/revision/latest?cb=20190521230436',
     gold: 566,
@@ -57,7 +57,7 @@ const charSheets = [
     wis: 12,
     cha: 16,
     inventory: [],
-    bio: {},
+    bio: '',
     avatar:
       'https://64.media.tumblr.com/f2626f1bf3721b1753aa8c428c9434e5/tumblr_oiem29UTd11qkpz2go1_1280.png',
     gold: 200,
