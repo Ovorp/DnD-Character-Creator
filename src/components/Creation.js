@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/creation.css';
 import Header from './Header';
 import NameInput from './NameInput';
 import NumberInput from './NumberInput';
