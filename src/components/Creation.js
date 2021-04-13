@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import '../css/creation.css';
 import Header from './Header';
 import NameInput from './NameInput';
 import NumberInput from './NumberInput';
+import Avatar from './Avatar';
 
 export default class Creation extends Component {
   constructor(props) {
@@ -11,30 +13,122 @@ export default class Creation extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      str: 0,
-      dex: 0,
-      con: 0,
-      int: 0,
-      wis: 0,
-      cha: 0,
+      str: '',
+      dex: '',
+      con: '',
+      int: '',
+      wis: '',
+      cha: '',
       bio: '',
       avatar: '',
     };
   }
 
+  handleUpdateUserInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleUpdateUserInputNumbers = (e) => {
+    this.setState({
+      [e.target.name]: +e.target.value,
+    });
+  };
+
+  handleSubmitCharSheet = () => {
+    const {
+      firstName,
+      lastName,
+      str,
+      dex,
+      con,
+      int,
+      wis,
+      cha,
+      bio,
+      avatar,
+    } = this.state;
+    axios
+      .post('/api/characters', {
+        firstName,
+        lastName,
+        str,
+        dex,
+        con,
+        int,
+        wis,
+        cha,
+        bio,
+        avatar,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div className="creation">
         <Header header={`Create Your Own D&D 5E Character`} />
-        <NameInput name="firstName" />
-        <NameInput name="lastName" />
-        <NumberInput name="str" />
-        <NumberInput name="dex" />
-        <NumberInput name="con" />
-        <NumberInput name="int" />
-        <NumberInput name="wis" />
-        <NumberInput name="cha" />
-        <textarea className="bio" />
+        <NameInput
+          name="firstName"
+          value={this.state.firstName}
+          handleUpdateUserInput={this.handleUpdateUserInput}
+        />
+        <NameInput
+          name="lastName"
+          value={this.state.lastName}
+          handleUpdateUserInput={this.handleUpdateUserInput}
+        />
+        <NumberInput
+          name="str"
+          value={this.state.str}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <NumberInput
+          name="dex"
+          value={this.state.dex}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <NumberInput
+          name="con"
+          value={this.state.con}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <NumberInput
+          name="int"
+          value={this.state.int}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <NumberInput
+          name="wis"
+          value={this.state.wis}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <NumberInput
+          name="cha"
+          value={this.state.cha}
+          handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+        />
+        <textarea
+          className="bio"
+          name="bio"
+          value={this.state.bio}
+          onChange={this.handleUpdateUserInput}
+        />
+        <Avatar
+          name="avatar"
+          handleUpdateUserInput={this.handleUpdateUserInput}
+        />
+
+        <button className="doneBTN" onClick={this.handleSubmitCharSheet}>
+          Done!
+        </button>
       </div>
     );
   }
