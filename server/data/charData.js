@@ -42,8 +42,7 @@ const charSheets = [
     cha: 18,
     inventory: [],
     bio: '',
-    avatar:
-      'https://static.wikia.nocookie.net/forgottenrealms/images/a/ab/Farideh.jpg/revision/latest?cb=20190521230436',
+    avatar: 'https://pbs.twimg.com/media/DMJbPTJVQAA5u3A.jpg',
     gold: 566,
   },
   {
