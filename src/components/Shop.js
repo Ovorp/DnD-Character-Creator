@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './../css/shop.css';
 import Header from './Header';
+import Store from './Shop/Store';
+import Inventory from './Shop/Inventory';
+
+// firstName,
+//  lastName,
+//  str,
+//  dex,
+//  con,
+//  int,
+//  wis,
+//  cha,
+//  bio,
+//  avatar,
+//  id,
+//  gold,
 
 export default class Shop extends Component {
   constructor(props) {
@@ -40,6 +55,7 @@ export default class Shop extends Component {
             bio,
             avatar,
             id,
+            gold,
           } = res.data[0];
           this.setState({
             firstName,
@@ -53,6 +69,7 @@ export default class Shop extends Component {
             bio,
             avatar,
             id,
+            gold,
           });
         })
         .catch((error) => {
@@ -62,12 +79,19 @@ export default class Shop extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="shop">
         <Header header={`Shop`} />
-        <h1>{this.state.id}</h1>
-        <h1>{this.state.lastName}</h1>
-        <h1>{this.state.firstName}</h1>
+        <div className="test">
+          <div>
+            <h2 className="gold">{this.state.gold}</h2>
+            <h2>{this.state.lastName}</h2>
+            <h2>{this.state.firstName}</h2>
+            <Inventory id={this.state.id} />
+          </div>
+          <Store />
+        </div>
       </div>
     );
   }
