@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 
 export default class Inventory extends Component {
@@ -11,22 +10,31 @@ export default class Inventory extends Component {
   }
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps.id !== this.props.id) {
-      axios
-        .get(`/api/characters/${this.props.id}`)
-        .then((res) => {
-          this.setState({
-            inventory: res.data[0].inventory,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if (prevProps.inventory !== this.props.inventory) {
+      this.setState({
+        inventory: this.props.inventory,
+      });
     }
   };
 
   render() {
-    console.log(this.state);
-    return <div className="Inventory"></div>;
+    return (
+      <div className="Inventory">
+        <ul>
+          {this.state.inventory.map((val) => {
+            return (
+              <li key={val.id} value={val.id}>
+                {val.name}{' '}
+                <button
+                  onClick={() => this.props.handleDeleteFromInventory(val.id)}
+                >
+                  X
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
   }
 }

@@ -39,43 +39,37 @@ export default class Shop extends Component {
         id: +this.props.id,
       });
     }
+
     if (prevState.id !== this.state.id) {
       axios
         .get(`/api/characters/${this.props.id}`)
         .then((res) => {
-          const {
-            firstName,
-            lastName,
-            str,
-            dex,
-            con,
-            int,
-            wis,
-            cha,
-            bio,
-            avatar,
-            id,
-            gold,
-          } = res.data[0];
+          const { firstName, lastName, id, gold, inventory } = res.data[0];
           this.setState({
             firstName,
             lastName,
-            str,
-            dex,
-            con,
-            int,
-            wis,
-            cha,
-            bio,
-            avatar,
             id,
             gold,
+            inventory,
           });
         })
         .catch((error) => {
           console.log(error);
         });
     }
+  };
+
+  handleDeleteFromInventory = (itemId) => {
+    axios
+      .delete(`/api/characters/deleteitems/${this.state.id}/${itemId}`)
+      .then()
+      .catch();
+    const newInventory = this.state.inventory.filter(
+      (val) => val.id !== itemId
+    );
+    this.setState({
+      inventory: newInventory,
+    });
   };
 
   render() {
@@ -88,7 +82,11 @@ export default class Shop extends Component {
             <h2 className="gold">{this.state.gold}</h2>
             <h2>{this.state.lastName}</h2>
             <h2>{this.state.firstName}</h2>
-            <Inventory id={this.state.id} />
+            <Inventory
+              id={this.state.id}
+              inventory={this.state.inventory}
+              handleDeleteFromInventory={this.handleDeleteFromInventory}
+            />
           </div>
           <Store />
         </div>
