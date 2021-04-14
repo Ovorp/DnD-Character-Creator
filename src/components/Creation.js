@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/creation.css';
 import Header from './Header';
-import NameInput from './NameInput';
-import NumberInput from './NumberInput';
-import Avatar from './Avatar';
-import DefaultChar from './DefaultChar';
+import NameInput from './Creation/NameInput';
+import NumberInput from './Creation/NumberInput';
+import Avatar from './Creation/Avatar';
+import DefaultChar from './Creation/DefaultChar';
 
 export default class Creation extends Component {
   constructor(props) {
@@ -24,6 +24,12 @@ export default class Creation extends Component {
       avatar: '',
       id: 0,
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.id !== this.state.id) {
+      this.props.handleUpdateId(this.state.id);
+    }
   }
 
   handleUpdateUserInput = (e) => {
@@ -66,6 +72,8 @@ export default class Creation extends Component {
       avatar,
       id: +id,
     });
+
+    this.props.handleShowShopToFalse();
   };
 
   handleSubmitCharSheet = () => {
@@ -97,9 +105,7 @@ export default class Creation extends Component {
           bio,
           avatar,
         })
-        .then((res) => {
-          console.log(res);
-        })
+        .then()
         .catch((error) => {
           console.log(error);
         });
@@ -118,7 +124,9 @@ export default class Creation extends Component {
           avatar,
         })
         .then((res) => {
-          console.log(res);
+          this.setState({
+            id: res.data.id,
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -127,7 +135,6 @@ export default class Creation extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="creation">
         <Header header={`Create Your Own D&D 5E Character`} />
@@ -191,9 +198,17 @@ export default class Creation extends Component {
           />
         ) : null}
         <DefaultChar handleDefaultChar={this.handleDefaultChar} />
-        <button className="doneBTN" onClick={this.handleSubmitCharSheet}>
+        <button
+          className="doneBTN"
+          onClick={() => {
+            this.handleSubmitCharSheet();
+            // this.props.handleUpdateId(this.state.id);
+            this.props.handleShowShop();
+          }}
+        >
           Done!
         </button>
+        {this.props.showShop ? <p>scroll Down</p> : null}
       </div>
     );
   }

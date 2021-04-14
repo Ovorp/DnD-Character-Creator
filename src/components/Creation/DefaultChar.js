@@ -12,7 +12,7 @@ export default class DefaultChar extends Component {
 
   componentDidMount = () => {
     axios
-      .get('api/characters')
+      .get('/api/characters')
       .then((res) => {
         this.setState({
           charSheets: res.data,
