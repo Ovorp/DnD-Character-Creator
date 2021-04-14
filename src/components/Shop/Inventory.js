@@ -21,18 +21,22 @@ export default class Inventory extends Component {
     return (
       <div className="Inventory">
         <ul>
-          {this.state.inventory.map((val) => {
-            return (
-              <li key={val.id} value={val.id}>
-                {val.name}{' '}
-                <button
-                  onClick={() => this.props.handleDeleteFromInventory(val.id)}
-                >
-                  X
-                </button>
-              </li>
-            );
-          })}
+          {this.state.inventory.length > 0
+            ? this.state.inventory.map((val, i) => {
+                return (
+                  <li key={(val.id, i)} value={val.id}>
+                    {val.name}
+                    <button
+                      onClick={() =>
+                        this.props.handleDeleteFromInventory(val.id)
+                      }
+                    >
+                      X
+                    </button>
+                  </li>
+                );
+              })
+            : null}
         </ul>
       </div>
     );

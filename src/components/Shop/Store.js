@@ -21,6 +21,15 @@ export default class Store extends Component {
       .catch((err) => console.log(err));
   };
 
+  handleUpdateStore = (item) => {
+    const filteredStoreItems = this.state.storeItems.filter(
+      (val) => val.id !== item.id
+    );
+    this.setState({
+      storeItems: filteredStoreItems,
+    });
+  };
+
   render() {
     return (
       <div className="store">
@@ -29,7 +38,15 @@ export default class Store extends Component {
           {this.state.storeItems.map((val) => {
             return (
               <li key={val.id}>
-                {val.name} <button>Add to Inventory</button>
+                {val.name}
+                <button
+                  onClick={() => {
+                    this.props.handleAddItemToInventory(val);
+                    this.handleUpdateStore(val);
+                  }}
+                >
+                  Add to Inventory
+                </button>
               </li>
             );
           })}

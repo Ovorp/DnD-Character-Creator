@@ -72,8 +72,25 @@ export default class Shop extends Component {
     });
   };
 
+  handleAddItemToInventory = (item) => {
+    const addedInventory = [...this.state.inventory, item];
+
+    this.setState({
+      inventory: addedInventory,
+    });
+    axios
+      .put(`/api/characters/additems/${this.state.id}`, item)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios.delete(`/api/items/${item.id}`).then().catch();
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div className="shop">
         <Header header={`Shop`} />
@@ -88,7 +105,7 @@ export default class Shop extends Component {
               handleDeleteFromInventory={this.handleDeleteFromInventory}
             />
           </div>
-          <Store />
+          <Store handleAddItemToInventory={this.handleAddItemToInventory} />
         </div>
       </div>
     );
