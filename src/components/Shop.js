@@ -27,11 +27,15 @@ export default class Shop extends Component {
     };
   }
 
+  // pulls the ID from the App component into this one and sets the id in state.
+
   componentDidMount = () => {
     this.setState({
       id: +this.props.id,
     });
   };
+
+  // if the id in the app state changes the state in this component updates
 
   componentDidUpdate = (prevProp, prevState) => {
     if (prevProp.id !== this.props.id) {
