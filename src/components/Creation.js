@@ -149,36 +149,17 @@ export default class Creation extends Component {
             value={this.state.lastName}
             handleUpdateUserInput={this.handleUpdateUserInput}
           />
-          <NumberInput
-            name="str"
-            value={this.state.str}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
-          <NumberInput
-            name="dex"
-            value={this.state.dex}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
-          <NumberInput
-            name="con"
-            value={this.state.con}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
-          <NumberInput
-            name="int"
-            value={this.state.int}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
-          <NumberInput
-            name="wis"
-            value={this.state.wis}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
-          <NumberInput
-            name="cha"
-            value={this.state.cha}
-            handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-          />
+
+          {this.props.abilityNames.map((val) => {
+            return (
+              <NumberInput
+                name={val}
+                value={this.state[val]}
+                handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+                key={val}
+              />
+            );
+          })}
           <textarea
             className="bio"
             name="bio"
