@@ -13,6 +13,7 @@ export default class App extends Component {
     this.state = {
       id: 0,
       inventory: [],
+      showCreation: true,
       showShop: false,
       showSheet: false,
     };
@@ -39,34 +40,45 @@ export default class App extends Component {
   handleShowShop = () => {
     this.setState({
       showShop: !this.state.showShop,
+      showCreation: !this.state.showCreation,
     });
   };
 
   handleShowSheet = () => {
     this.setState({
       showSheet: !this.state.showSheet,
+      showShop: !this.state.showShop,
     });
   };
 
   render() {
+    console.log(this.state.id);
     return (
       <div className="app">
-        <Creation
-          handleUpdateId={this.handleUpdateId}
-          handleShowShop={this.handleShowShop}
-          handleShowShopToFalse={this.handleShowShopToFalse}
-          showShop={this.state.showShop}
-          abilityNames={this.abilityNames}
-        />
+        {this.state.showCreation ? (
+          <Creation
+            handleUpdateId={this.handleUpdateId}
+            handleShowShop={this.handleShowShop}
+            handleShowShopToFalse={this.handleShowShopToFalse}
+            showShop={this.state.showShop}
+            abilityNames={this.abilityNames}
+          />
+        ) : null}
+
         {this.state.showShop ? (
           <Shop
             id={this.state.id}
             handleShowSheet={this.handleShowSheet}
             showSheet={this.state.showSheet}
+            handleShowShop={this.handleShowShop}
           />
         ) : null}
         {this.state.showSheet ? (
-          <Sheet id={this.state.id} abilityNames={this.abilityNames} />
+          <Sheet
+            id={this.state.id}
+            abilityNames={this.abilityNames}
+            handleShowSheet={this.handleShowSheet}
+          />
         ) : null}
       </div>
     );

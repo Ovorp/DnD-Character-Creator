@@ -1,0 +1,18 @@
+h2 {
+  width: 100%;
+  padding: 10px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 60%;
+  height: 2rem;
+  padding: 0.2rem 0.3rem;
+  transition: width 0.4s ease-in-out;
+  font-family: var(--font);
+  background-color: var(--grey);
+}
+
+input:focus {
+  width: 100%;
+}

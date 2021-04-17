@@ -91,7 +91,7 @@ export default class Creation extends Component {
       id,
     } = this.state;
 
-    if (id > 0) {
+    if (id > 0 && id < 5) {
       axios
         .put(`/api/characters/${this.state.id}`, {
           firstName,
@@ -105,7 +105,7 @@ export default class Creation extends Component {
           bio,
           avatar,
         })
-        .then()
+        .then(this.props.handleUpdateId(this.state.id))
         .catch((error) => {
           console.log(error);
         });
@@ -124,9 +124,7 @@ export default class Creation extends Component {
           avatar,
         })
         .then((res) => {
-          this.setState({
-            id: res.data.id,
-          });
+          this.props.handleUpdateId(res.data.id);
         })
         .catch((error) => {
           console.log(error);
@@ -138,7 +136,7 @@ export default class Creation extends Component {
     return (
       <div className="creation">
         <Header header={`Create Your Own D&D 5E Character`} />
-        <div className="stats-creation">
+        <div className="names">
           <NameInput
             name="firstName"
             value={this.state.firstName}
@@ -149,7 +147,9 @@ export default class Creation extends Component {
             value={this.state.lastName}
             handleUpdateUserInput={this.handleUpdateUserInput}
           />
+        </div>
 
+        <div className="numbers">
           {this.props.abilityNames.map((val) => {
             return (
               <NumberInput
@@ -160,13 +160,16 @@ export default class Creation extends Component {
               />
             );
           })}
-          <textarea
-            className="bio"
-            name="bio"
-            value={this.state.bio}
-            onChange={this.handleUpdateUserInput}
-          />
         </div>
+
+        <textarea
+          className="bio"
+          name="bio"
+          value={this.state.bio}
+          onChange={this.handleUpdateUserInput}
+          placeholder="Write your Bio here!"
+        />
+
         <Avatar
           name="avatar"
           handleUpdateUserInput={this.handleUpdateUserInput}
@@ -183,7 +186,6 @@ export default class Creation extends Component {
           className="doneBTN"
           onClick={() => {
             this.handleSubmitCharSheet();
-            // this.props.handleUpdateId(this.state.id);
             this.props.handleShowShop();
           }}
         >

@@ -6,6 +6,7 @@ import DisplayName from './Sheet/DisplayName';
 import DisplayAbilityScore from './Sheet/DisplayAbilityScore';
 import DisplayInventory from './Sheet/DisplayInventory';
 import DisplayShop from './Sheet/DisplayShop';
+import DisplayMods from './Sheet/DisplayMods';
 
 export default class Sheet extends Component {
   constructor(props) {
@@ -70,18 +71,17 @@ export default class Sheet extends Component {
         <Header
           header={`Welcome adventurer ${this.state.firstName}${
             this.state.lastName ? ` ${this.state.lastName}.` : `.`
-          }  Have fun, don't die`}
+          }`}
         />
         <DisplayName name={this.state.firstName} title="First Name" />
         <DisplayName name={this.state.lastName} title="Last Name" />
         <img src={this.state.avatar} alt="avatar" />
-        {this.props.abilityNames.map((val) => {
+        {this.props.abilityNames.map((val, i) => {
           return (
-            <DisplayAbilityScore
-              score={this.state[val]}
-              scoreName={val}
-              key={val}
-            />
+            <>
+              <DisplayAbilityScore score={this.state[val]} scoreName={val} />
+              <DisplayMods score={this.state[val]} scoreName={val} />
+            </>
           );
         })}
         <article>{this.state.gold}</article>
@@ -92,6 +92,7 @@ export default class Sheet extends Component {
         {this.state.shopItems ? (
           <DisplayShop shopItems={this.state.shopItems} />
         ) : null}
+        <button onClick={this.props.handleShowSheet}>Go Back!</button>
       </section>
     );
   }

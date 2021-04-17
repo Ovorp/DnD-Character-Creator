@@ -1,5 +1,12 @@
+:root {
+  --font: 'Press Start 2P', cursive;
+  --grey: rgb(196, 196, 196);
+  --background: rgb(158, 143, 148);
+}
+
 body {
-  background-color: #9e8f94;
-  font-family: 'Press Start 2P', cursive;
+  background-color: var(--background);
+  font-family: var(--font);
   overflow-x: hidden;
+  box-sizing: border-box;
 }

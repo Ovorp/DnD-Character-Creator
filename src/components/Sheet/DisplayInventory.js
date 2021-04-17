@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function DisplayInventory(props) {
-  console.log(props.inventory);
   return (
     <article>
       <ul>
