@@ -2,7 +2,11 @@ import React from 'react';
 
 export default function Avatar(props) {
   return (
-    <select name="avatar" onChange={props.handleUpdateUserInput}>
+    <select
+      name="avatar"
+      className="avatar"
+      onChange={props.handleUpdateUserInput}
+    >
       <option value="">Pick an Avatar</option>
       <option value="https://db4sgowjqfwig.cloudfront.net/campaigns/178338/assets/813777/Tortle.png?1514853655">
         Avatar 1

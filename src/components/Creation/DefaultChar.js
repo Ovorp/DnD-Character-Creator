@@ -26,6 +26,7 @@ export default class DefaultChar extends Component {
   render() {
     return (
       <select
+        className="default"
         onChange={(e) => {
           if (e.target.value !== 'false') {
             this.props.handleDefaultChar(this.state.charSheets[e.target.value]);

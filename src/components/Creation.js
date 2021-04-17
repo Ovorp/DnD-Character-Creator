@@ -136,62 +136,67 @@ export default class Creation extends Component {
     return (
       <div className="creation">
         <Header header={`Create Your Own D&D 5E Character`} />
-        <div className="names">
-          <NameInput
-            name="firstName"
-            value={this.state.firstName}
-            handleUpdateUserInput={this.handleUpdateUserInput}
-          />
-          <NameInput
-            name="lastName"
-            value={this.state.lastName}
-            handleUpdateUserInput={this.handleUpdateUserInput}
-          />
-        </div>
-
-        <div className="numbers">
-          {this.props.abilityNames.map((val) => {
-            return (
-              <NumberInput
-                name={val}
-                value={this.state[val]}
-                handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-                key={val}
+        <section className="creation-container">
+          <article className="article1">
+            <div className="names">
+              <NameInput
+                name="firstName"
+                value={this.state.firstName}
+                handleUpdateUserInput={this.handleUpdateUserInput}
               />
-            );
-          })}
-        </div>
+              <NameInput
+                name="lastName"
+                value={this.state.lastName}
+                handleUpdateUserInput={this.handleUpdateUserInput}
+              />
+            </div>
 
-        <textarea
-          className="bio"
-          name="bio"
-          value={this.state.bio}
-          onChange={this.handleUpdateUserInput}
-          placeholder="Write your Bio here!"
-        />
+            <div className="numbers">
+              {this.props.abilityNames.map((val) => {
+                return (
+                  <NumberInput
+                    name={val}
+                    value={this.state[val]}
+                    handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+                    key={val}
+                  />
+                );
+              })}
+            </div>
 
-        <Avatar
-          name="avatar"
-          handleUpdateUserInput={this.handleUpdateUserInput}
-        />
-        {this.state.avatar ? (
-          <img
-            src={this.state.avatar}
-            alt="Avatar"
-            className="avatar-creation"
-          />
-        ) : null}
-        <DefaultChar handleDefaultChar={this.handleDefaultChar} />
-        <button
-          className="doneBTN"
-          onClick={() => {
-            this.handleSubmitCharSheet();
-            this.props.handleShowShop();
-          }}
-        >
-          Done!
-        </button>
-        {this.props.showShop ? <p>scroll Down</p> : null}
+            <textarea
+              className="bio"
+              name="bio"
+              value={this.state.bio}
+              onChange={this.handleUpdateUserInput}
+              placeholder="Write your Bio here!"
+            />
+          </article>
+          <article className="article2">
+            <DefaultChar handleDefaultChar={this.handleDefaultChar} />
+            <Avatar
+              name="avatar"
+              handleUpdateUserInput={this.handleUpdateUserInput}
+            />
+            {this.state.avatar ? (
+              <img
+                src={this.state.avatar}
+                alt="Avatar"
+                className="avatar-creation"
+              />
+            ) : null}
+
+            <button
+              className="doneBTN"
+              onClick={() => {
+                this.handleSubmitCharSheet();
+                this.props.handleShowShop();
+              }}
+            >
+              Done!
+            </button>
+          </article>
+        </section>
       </div>
     );
   }
