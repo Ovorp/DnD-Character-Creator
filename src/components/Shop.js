@@ -84,9 +84,7 @@ export default class Shop extends Component {
     });
     axios
       .put(`/api/characters/additems/${this.state.id}`, item)
-      .then((res) => {
-        console.log(res);
-      })
+      .then()
       .catch((err) => {
         console.log(err);
       });
@@ -97,7 +95,7 @@ export default class Shop extends Component {
   render() {
     return (
       <div className="shop">
-        <Header header={`Shop`} />
+        <Header header="Shop" />
         <div className="test">
           <div>
             <h2 className="gold">{this.state.gold}</h2>
@@ -111,6 +109,9 @@ export default class Shop extends Component {
           </div>
           <Store handleAddItemToInventory={this.handleAddItemToInventory} />
         </div>
+        <button onClick={this.props.handleShowSheet}>Done Shopping!</button>
+        <button onClick={this.props.handleShowShop}>Go Back!</button>
+        <h4>{this.props.showSheet ? 'Scroll Down' : ''}</h4>
       </div>
     );
   }
