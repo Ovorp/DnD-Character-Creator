@@ -19,7 +19,7 @@ export default class Inventory extends Component {
 
   render() {
     return (
-      <div className="Inventory">
+      <div className="inventory">
         <ul>
           {this.state.inventory.length > 0
             ? this.state.inventory.map((val, i) => {

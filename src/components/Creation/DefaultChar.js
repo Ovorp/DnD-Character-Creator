@@ -58,10 +58,10 @@ export default class DefaultChar extends Component {
         }}
       >
         <option value={false}>Select a default Character</option>
-        <option value={0}>turtle</option>
-        <option value={1}>elf</option>
-        <option value={2}>teifling</option>
-        <option value={3}>human</option>
+        <option value={0}>Turtle</option>
+        <option value={1}>Elf</option>
+        <option value={2}>Teifling</option>
+        <option value={3}>Human</option>
       </select>
     );
   }

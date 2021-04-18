@@ -33,7 +33,6 @@ export default class Store extends Component {
   render() {
     return (
       <div className="store">
-        <h3>Welcome to the store</h3>
         <ul>
           {this.state.storeItems.map((val) => {
             return (
