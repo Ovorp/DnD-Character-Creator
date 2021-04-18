@@ -87,7 +87,7 @@ export default class Sheet extends Component {
                 </>
               );
             })}
-            <article>Gold: {this.state.gold}</article>
+            <article id="gold">Gold: {this.state.gold}</article>
           </div>
           <img className="sheet-img" src={this.state.avatar} alt="avatar" />
 

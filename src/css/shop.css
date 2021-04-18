@@ -46,3 +46,8 @@ li {
 li button {
   margin: 0;
 }
+
+.store-cost {
+  display: flex;
+  flex-direction: column;
+}

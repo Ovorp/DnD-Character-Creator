@@ -78,9 +78,11 @@ export default class Shop extends Component {
 
   handleAddItemToInventory = (item) => {
     const addedInventory = [...this.state.inventory, item];
+    const totalGold = this.state.gold - item.cost;
 
     this.setState({
       inventory: addedInventory,
+      gold: totalGold,
     });
     axios
       .put(`/api/characters/additems/${this.state.id}`, item)
@@ -88,6 +90,11 @@ export default class Shop extends Component {
       .catch((err) => {
         console.log(err);
       });
+
+    axios
+      .put(`/api/characters/${this.state.id}`, { gold: totalGold })
+      .then()
+      .catch();
 
     axios.delete(`/api/items/${item.id}`).then().catch();
   };

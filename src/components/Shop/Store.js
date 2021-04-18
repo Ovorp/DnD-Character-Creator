@@ -37,7 +37,10 @@ export default class Store extends Component {
           {this.state.storeItems.map((val) => {
             return (
               <li key={val.id}>
-                {val.name}
+                <div className="store-cost">
+                  {val.name}
+                  <p>cost: {val.cost}</p>
+                </div>
                 <button
                   onClick={() => {
                     this.props.handleAddItemToInventory(val);
