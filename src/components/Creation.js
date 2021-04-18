@@ -26,6 +26,49 @@ export default class Creation extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.id > 0) {
+      axios
+        .get(`/api/characters/${this.props.id}`)
+        .then((res) => {
+          const {
+            firstName,
+            lastName,
+            str,
+            dex,
+            con,
+            int,
+            wis,
+            cha,
+            bio,
+            avatar,
+            id,
+            gold,
+            inventory,
+          } = res.data[0];
+
+          this.setState({
+            firstName,
+            lastName,
+            str: +str,
+            dex: +dex,
+            con: +con,
+            int: +int,
+            wis: +wis,
+            cha: +cha,
+            bio,
+            avatar,
+            id: +id,
+            gold: +gold,
+            inventory,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.id !== this.state.id) {
       this.props.handleUpdateId(this.state.id);
@@ -133,6 +176,7 @@ export default class Creation extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="creation">
         <Header header={`Create Your Own D&D 5E Character`} />

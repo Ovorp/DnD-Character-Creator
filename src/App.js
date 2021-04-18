@@ -52,7 +52,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.state.id);
     return (
       <div className="app">
         {this.state.showCreation ? (
@@ -62,6 +61,7 @@ export default class App extends Component {
             handleShowShopToFalse={this.handleShowShopToFalse}
             showShop={this.state.showShop}
             abilityNames={this.abilityNames}
+            id={this.state.id}
           />
         ) : null}
 

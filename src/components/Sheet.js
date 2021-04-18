@@ -79,12 +79,12 @@ export default class Sheet extends Component {
           <div className="character-sheet-stats">
             {this.props.abilityNames.map((val, i) => {
               return (
-                <>
+                <div key={val.name}>
                   <DisplayAbilityScore
                     score={this.state[val]}
                     scoreName={val}
                   />
-                </>
+                </div>
               );
             })}
             <article id="gold">Gold: {this.state.gold}</article>

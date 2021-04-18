@@ -1,9 +1,10 @@
 .skills {
-  width: 35%;
+  margin: 0 20px;
   height: 60px;
   display: flex;
   flex-direction: column;
-  /* background-color: blue; */
+  /* align-self: flex-end; */
+  align-content: space-between;
 }
 
 .score-numbers,
