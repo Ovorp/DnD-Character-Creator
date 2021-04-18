@@ -100,7 +100,9 @@ export default class Shop extends Component {
         <div className="shop-main">
           <div>
             <h3>
-              {this.state.lastName} {this.state.firstName} Inventory
+              {this.state.firstName}
+              {this.state.lastName ? ` ${this.state.lastName}'s` : `'s`}{' '}
+              Inventory
             </h3>
             <Inventory
               className="inventory"
@@ -108,14 +110,17 @@ export default class Shop extends Component {
               inventory={this.state.inventory}
               handleDeleteFromInventory={this.handleDeleteFromInventory}
             />
+            <button onClick={this.props.handleShowShop}>Go Back!</button>
           </div>
           <div>
             <h3>Welcome to the store</h3>
             <Store handleAddItemToInventory={this.handleAddItemToInventory} />
+            <button onClick={this.props.handleShowSheet}>
+              Done Shopping!
+            </button>{' '}
           </div>
         </div>
-        <button onClick={this.props.handleShowShop}>Go Back!</button>
-        <button onClick={this.props.handleShowSheet}>Done Shopping!</button>
+
         <h4>{this.props.showSheet ? 'Scroll Down' : ''}</h4>
       </div>
     );

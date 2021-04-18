@@ -30,29 +30,29 @@ export default function DisplayMods(props) {
       break;
     case 12:
     case 13:
-      mod = 1;
+      mod = `+1`;
       break;
     case 14:
     case 15:
-      mod = 2;
+      mod = `+2`;
       break;
     case 16:
     case 17:
-      mod = 3;
+      mod = `+3`;
       break;
     case 18:
     case 19:
-      mod = 4;
+      mod = `+4`;
       break;
     case 20:
-      mod = 5;
+      mod = `+5`;
       break;
     default:
   }
 
   return (
     <div className="mod">
-      <p>{mod}mod</p>
+      <p>{mod}</p>
     </div>
   );
 }

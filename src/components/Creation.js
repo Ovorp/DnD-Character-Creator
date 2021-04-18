@@ -165,7 +165,6 @@ export default class Creation extends Component {
             </div>
 
             <textarea
-              className="bio"
               name="bio"
               value={this.state.bio}
               onChange={this.handleUpdateUserInput}
@@ -182,7 +181,7 @@ export default class Creation extends Component {
               <img
                 src={this.state.avatar}
                 alt="Avatar"
-                className="avatar-creation"
+                className="avatar-img"
               />
             ) : null}
 

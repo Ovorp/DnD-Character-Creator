@@ -2,3 +2,39 @@
   height: 100vh;
   width: 100vw;
 }
+
+.character-sheet {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.character-sheet-stats {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sheet-img {
+  border: 6px solid black;
+  width: 25%;
+  height: 50vh;
+  margin: auto;
+}
+
+.bio {
+  background-color: var(--grey);
+  width: 70%;
+  height: auto;
+  border: 6px solid black;
+  padding: 1rem;
+  line-height: 1.6rem;
+  margin: 40px auto;
+}
+
+.inventory-shop-item-list {
+  display: flex;
+  justify-content: space-around;
+}
