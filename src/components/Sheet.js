@@ -2,11 +2,11 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import './../css/sheet.css';
 import Header from './Header';
-import DisplayName from './Sheet/DisplayName';
+// import DisplayName from './Sheet/DisplayName';
 import DisplayAbilityScore from './Sheet/DisplayAbilityScore';
 import DisplayInventory from './Sheet/DisplayInventory';
 import DisplayShop from './Sheet/DisplayShop';
-import DisplayMods from './Sheet/DisplayMods';
+// import DisplayMods from './Sheet/DisplayMods';
 
 export default class Sheet extends Component {
   constructor(props) {
@@ -69,30 +69,41 @@ export default class Sheet extends Component {
     return (
       <section className="sheet">
         <Header
-          header={`Welcome adventurer ${this.state.firstName}${
-            this.state.lastName ? ` ${this.state.lastName}.` : `.`
+          header={`Welcome adventurer, ${this.state.firstName}${
+            this.state.lastName ? ` ${this.state.lastName}!` : `!`
           }`}
         />
-        <DisplayName name={this.state.firstName} title="First Name" />
-        <DisplayName name={this.state.lastName} title="Last Name" />
-        <img src={this.state.avatar} alt="avatar" />
-        {this.props.abilityNames.map((val, i) => {
-          return (
-            <>
-              <DisplayAbilityScore score={this.state[val]} scoreName={val} />
-              <DisplayMods score={this.state[val]} scoreName={val} />
-            </>
-          );
-        })}
-        <article>{this.state.gold}</article>
-        <article>{this.state.bio}</article>
-        {this.state.inventory ? (
-          <DisplayInventory inventory={this.state.inventory} />
-        ) : null}
-        {this.state.shopItems ? (
-          <DisplayShop shopItems={this.state.shopItems} />
-        ) : null}
-        <button onClick={this.props.handleShowSheet}>Go Back!</button>
+        {/* <DisplayName name={this.state.firstName} title="First Name" />
+        <DisplayName name={this.state.lastName} title="Last Name" /> */}
+        <div className="character-sheet">
+          <div className="character-sheet-stats">
+            {this.props.abilityNames.map((val, i) => {
+              return (
+                <>
+                  <DisplayAbilityScore
+                    score={this.state[val]}
+                    scoreName={val}
+                  />
+                </>
+              );
+            })}
+            <article>Gold: {this.state.gold}</article>
+          </div>
+          <img className="sheet-img" src={this.state.avatar} alt="avatar" />
+
+          <article className="bio">{this.state.bio}</article>
+        </div>
+        <div className="inventory-shop-item-list">
+          <div>
+            {this.state.inventory ? (
+              <DisplayInventory inventory={this.state.inventory} />
+            ) : null}
+            <button onClick={this.props.handleShowSheet}>Go Back!</button>
+          </div>
+          {this.state.shopItems ? (
+            <DisplayShop shopItems={this.state.shopItems} />
+          ) : null}
+        </div>
       </section>
     );
   }

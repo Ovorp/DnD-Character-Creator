@@ -96,21 +96,31 @@ export default class Shop extends Component {
     return (
       <div className="shop">
         <Header header="Shop" />
-        <div className="test">
+        <h2 className="gold">Gold:{this.state.gold}</h2>
+        <div className="shop-main">
           <div>
-            <h2 className="gold">{this.state.gold}</h2>
-            <h2>{this.state.lastName}</h2>
-            <h2>{this.state.firstName}</h2>
+            <h3>
+              {this.state.firstName}
+              {this.state.lastName ? ` ${this.state.lastName}'s` : `'s`}{' '}
+              Inventory
+            </h3>
             <Inventory
+              className="inventory"
               id={this.state.id}
               inventory={this.state.inventory}
               handleDeleteFromInventory={this.handleDeleteFromInventory}
             />
+            <button onClick={this.props.handleShowShop}>Go Back!</button>
           </div>
-          <Store handleAddItemToInventory={this.handleAddItemToInventory} />
+          <div>
+            <h3>Welcome to the store</h3>
+            <Store handleAddItemToInventory={this.handleAddItemToInventory} />
+            <button onClick={this.props.handleShowSheet}>
+              Done Shopping!
+            </button>{' '}
+          </div>
         </div>
-        <button onClick={this.props.handleShowSheet}>Done Shopping!</button>
-        <button onClick={this.props.handleShowShop}>Go Back!</button>
+
         <h4>{this.props.showSheet ? 'Scroll Down' : ''}</h4>
       </div>
     );

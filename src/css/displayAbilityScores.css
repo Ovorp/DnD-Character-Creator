@@ -1,0 +1,21 @@
+.skills {
+  width: 35%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+}
+
+.score-numbers,
+.mod-numbers {
+  margin-bottom: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#skill-name {
+  font-size: 1.4em;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
