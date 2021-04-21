@@ -198,7 +198,7 @@ export default class Creation extends Component {
             <div className="numbers">
               {this.props.abilityNames.map((val, i) => {
                 return (
-                  <>
+                  <div key={i}>
                     <NumberInput
                       name={val}
                       value={this.state[val]}
@@ -206,7 +206,7 @@ export default class Creation extends Component {
                       key={val}
                       indexNumberForSkillExplanation={i}
                     />
-                  </>
+                  </div>
                 );
               })}
             </div>
