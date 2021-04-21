@@ -53,7 +53,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <main className="app">
         {this.state.showCreation ? (
           <Creation
             handleUpdateId={this.handleUpdateId}
@@ -80,7 +80,7 @@ export default class App extends Component {
             handleShowSheet={this.handleShowSheet}
           />
         ) : null}
-      </div>
+      </main>
     );
   }
 }

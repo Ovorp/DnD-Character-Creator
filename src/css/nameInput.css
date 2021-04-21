@@ -1,6 +1,8 @@
 h2 {
   width: 100%;
   padding: 10px;
+  display: flex;
+  align-items: baseline;
 }
 
 input {

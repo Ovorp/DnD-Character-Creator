@@ -1,7 +1,7 @@
 const shopItems = [
   {
     id: 1,
-    name: 'padded armor',
+    name: 'Padded Armor',
     stats: {
       AC: 11 + 'dexMod',
     },
@@ -10,7 +10,7 @@ const shopItems = [
   },
   {
     id: 2,
-    name: 'leather armor',
+    name: 'Leather Armor',
     stats: {
       AC: 11 + 'dexMod',
     },
@@ -19,7 +19,7 @@ const shopItems = [
   },
   {
     id: 3,
-    name: 'studded leather armor',
+    name: 'Studded Leather Armor',
     stats: {
       AC: 12 + 'dexMod',
     },
@@ -28,7 +28,7 @@ const shopItems = [
   },
   {
     id: 4,
-    name: 'hide armor',
+    name: 'Hide Armor',
     stats: {
       AC: 12 + 'dexMod max 2',
     },
@@ -37,7 +37,7 @@ const shopItems = [
   },
   {
     id: 5,
-    name: 'scale mail armor',
+    name: 'Scale Mail Armor',
     stats: {
       AC: 14 + 'dexMod max 2',
     },
@@ -46,7 +46,7 @@ const shopItems = [
   },
   {
     id: 6,
-    name: 'plate armor',
+    name: 'Plate Armor',
     stats: {
       AC: 18,
     },
@@ -55,7 +55,7 @@ const shopItems = [
   },
   {
     id: 7,
-    name: 'club',
+    name: 'Club',
     stats: {
       damage: '1d4',
       properties: 'light',
@@ -65,7 +65,7 @@ const shopItems = [
   },
   {
     id: 8,
-    name: 'dagger',
+    name: 'Dagger',
     stats: {
       damage: '1d4',
       properties: 'light',
@@ -75,7 +75,7 @@ const shopItems = [
   },
   {
     id: 9,
-    name: 'mace',
+    name: 'Mace',
     stats: {
       damage: '1d6',
       properties: null,
@@ -85,7 +85,7 @@ const shopItems = [
   },
   {
     id: 10,
-    name: 'shortbow',
+    name: 'Shortbow',
     stats: {
       damage: '1d6',
       properties: 'ranged',
@@ -95,7 +95,7 @@ const shopItems = [
   },
   {
     id: 11,
-    name: 'arrows',
+    name: 'Arrows',
     stats: {
       damage: null,
       properties: 'ammunition',
@@ -105,7 +105,7 @@ const shopItems = [
   },
   {
     id: 12,
-    name: 'battleaxe',
+    name: 'Battleaxe',
     stats: {
       damage: '1d8',
       properties: 'verstile',
@@ -115,7 +115,7 @@ const shopItems = [
   },
   {
     id: 13,
-    name: 'longsword',
+    name: 'Longsword',
     stats: {
       damage: '1d8',
       properties: 'versatile',
@@ -125,7 +125,7 @@ const shopItems = [
   },
   {
     id: 14,
-    name: 'warhammer',
+    name: 'Warhammer',
     stats: {
       damage: '1d8',
       properties: 'versatile',
@@ -135,7 +135,7 @@ const shopItems = [
   },
   {
     id: 15,
-    name: 'greateaxe',
+    name: 'Greateaxe',
     stats: {
       damage: '1d12',
       properties: 'heavy',
@@ -145,7 +145,7 @@ const shopItems = [
   },
   {
     id: 16,
-    name: 'greatsword',
+    name: 'Greatsword',
     stats: {
       damage: '2d6',
       properties: 'heavy',

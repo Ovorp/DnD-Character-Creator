@@ -6,6 +6,7 @@ import NameInput from './Creation/NameInput';
 import NumberInput from './Creation/NumberInput';
 import Avatar from './Creation/Avatar';
 import DefaultChar from './Creation/DefaultChar';
+// import QuestionMarkInfo from './Creation/QuestionMarkInfo';
 
 export default class Creation extends Component {
   constructor(props) {
@@ -176,10 +177,9 @@ export default class Creation extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="creation">
-        <Header header={`Create Your Own D&D 5E Character`} />
+        <Header header={`Create Your Own D&D 5E Character!`} />
         <section className="creation-container">
           <article className="article1">
             <div className="names">
@@ -196,14 +196,17 @@ export default class Creation extends Component {
             </div>
 
             <div className="numbers">
-              {this.props.abilityNames.map((val) => {
+              {this.props.abilityNames.map((val, i) => {
                 return (
-                  <NumberInput
-                    name={val}
-                    value={this.state[val]}
-                    handleUpdateUserInput={this.handleUpdateUserInputNumbers}
-                    key={val}
-                  />
+                  <>
+                    <NumberInput
+                      name={val}
+                      value={this.state[val]}
+                      handleUpdateUserInput={this.handleUpdateUserInputNumbers}
+                      key={val}
+                      indexNumberForSkillExplanation={i}
+                    />
+                  </>
                 );
               })}
             </div>

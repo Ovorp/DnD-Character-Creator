@@ -2,11 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import './../css/sheet.css';
 import Header from './Header';
-// import DisplayName from './Sheet/DisplayName';
 import DisplayAbilityScore from './Sheet/DisplayAbilityScore';
 import DisplayInventory from './Sheet/DisplayInventory';
 import DisplayShop from './Sheet/DisplayShop';
-// import DisplayMods from './Sheet/DisplayMods';
 
 export default class Sheet extends Component {
   constructor(props) {
@@ -73,8 +71,6 @@ export default class Sheet extends Component {
             this.state.lastName ? ` ${this.state.lastName}!` : `!`
           }`}
         />
-        {/* <DisplayName name={this.state.firstName} title="First Name" />
-        <DisplayName name={this.state.lastName} title="Last Name" /> */}
         <div className="character-sheet">
           <div className="character-sheet-stats">
             {this.props.abilityNames.map((val, i) => {
