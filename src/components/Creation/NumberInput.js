@@ -18,6 +18,7 @@ export default function NumberInput(props) {
         <h2>
           {props.name[0].toUpperCase() + props.name.slice(1)}{' '}
           <QuestionMarkInfo
+            key={`skill explain for ${this.props.name}`}
             explain={skillExplained[props.indexNumberForSkillExplanation]}
           />
         </h2>

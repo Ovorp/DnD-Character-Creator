@@ -21,6 +21,13 @@ export default class Store extends Component {
       .catch((err) => console.log(err));
   };
 
+  componentDidUpdate = (prevProp, prevState) => {
+    if (
+      prevProp.filterItemListFromSearch !== this.props.filterItemListFromSearch
+    )
+      this.setState({ storeItems: this.props.filterItemListFromSearch });
+  };
+
   handleUpdateStore = (item) => {
     const filteredStoreItems = this.state.storeItems.filter(
       (val) => val.id !== item.id

@@ -4,6 +4,7 @@ import './../css/shop.css';
 import Header from './Header';
 import Store from './Shop/Store';
 import Inventory from './Shop/Inventory';
+import FilterItems from './Shop/FilterItems';
 
 // firstName,
 //  lastName,
@@ -99,6 +100,13 @@ export default class Shop extends Component {
     axios.delete(`/api/items/${item.id}`).then().catch();
   };
 
+  handleFilterItems = (itemArr) => {
+    const newItemArr = itemArr;
+    this.setState({
+      filterShopList: [...newItemArr],
+    });
+  };
+
   render() {
     return (
       <div className="shop">
@@ -120,11 +128,15 @@ export default class Shop extends Component {
             <button onClick={this.props.handleShowShop}>Go Back!</button>
           </div>
           <div>
-            <h3>Welcome to the store</h3>
-            <Store handleAddItemToInventory={this.handleAddItemToInventory} />
-            <button onClick={this.props.handleShowSheet}>
-              Done Shopping!
-            </button>{' '}
+            <div className="store-container">
+              <h3>Welcome to the store</h3>
+              <FilterItems handleFilterItems={this.handleFilterItems} />
+            </div>
+            <Store
+              handleAddItemToInventory={this.handleAddItemToInventory}
+              filterItemListFromSearch={this.state.filterShopList}
+            />
+            <button onClick={this.props.handleShowSheet}>Done Shopping!</button>{' '}
           </div>
         </div>
 
