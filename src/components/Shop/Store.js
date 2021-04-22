@@ -10,6 +10,8 @@ export default class Store extends Component {
     };
   }
 
+  // sets the store items for the server to state
+
   componentDidMount = () => {
     axios
       .get('/api/items')
@@ -21,12 +23,16 @@ export default class Store extends Component {
       .catch((err) => console.log(err));
   };
 
+  // sets the store itmes in state to a filter list
+
   componentDidUpdate = (prevProp, prevState) => {
     if (
       prevProp.filterItemListFromSearch !== this.props.filterItemListFromSearch
     )
       this.setState({ storeItems: this.props.filterItemListFromSearch });
   };
+
+  // deletes an item from the store list when it is add to inventory
 
   handleUpdateStore = (item) => {
     const filteredStoreItems = this.state.storeItems.filter(
