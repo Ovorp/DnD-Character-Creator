@@ -88,7 +88,7 @@ export default class FilterItems extends Component {
             <div>
               <input
                 type="number"
-                placeholder="Search by minimum price"
+                placeholder="minimum item price"
                 onChange={this.handleMinCostInput}
               />
               <button
@@ -103,7 +103,7 @@ export default class FilterItems extends Component {
             <div>
               <input
                 type="number"
-                placeholder="Search by maximum price"
+                placeholder="maxium item price"
                 onChange={this.handleMaxCostInput}
               />
               <button
