@@ -7,6 +7,8 @@ export default function Avatar(props) {
       className="avatar"
       onChange={props.handleUpdateUserInput}
     >
+      {/* this is more of a test  */}
+
       <option value="">Pick an Avatar</option>
       <option value="https://db4sgowjqfwig.cloudfront.net/campaigns/178338/assets/813777/Tortle.png?1514853655">
         Avatar 1
