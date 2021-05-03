@@ -15,6 +15,8 @@ export default class FilterItems extends Component {
     };
   }
 
+  // displays the search box
+
   handleTurnOnSearch = () => {
     this.setState({
       displaySearch: !this.state.displaySearch,
